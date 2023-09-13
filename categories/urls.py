@@ -1,11 +1,16 @@
 from django.urls import path
 
 from .apps import CategoriesConfig
-from .views import CategoriesListView
+from .views import *
 
 app_name = CategoriesConfig.name
 
 urlpatterns = [
 
-    path('', CategoriesListView.as_view(), name='list_view')
+    path('', CategoryListApiView.as_view(), name='list_view'),
+    path('create/', CategoryCreateApiView.as_view(), name='create_view'),
+    path('update/<int:pk>/', CategoryUpdateApiView.as_view(), name='update_view'),
+    path('detail/<int:pk>/', CategoryRetrieveApiView.as_view(), name='detail_view'),
+    path('delete/<int:pk>/', CategoryDeleteApiView.as_view(), name='delete_view'),
+
 ]
