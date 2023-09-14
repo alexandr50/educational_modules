@@ -9,6 +9,7 @@ class EducationalModule(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     description = models.TextField(verbose_name='Описание')
     price = models.PositiveIntegerField(default=0, verbose_name='Стоимость')
+    image = models.ImageField(upload_to='images/', verbose_name='Изображение', blank=True, null=True)
 
     def __str__(self):
         return self.name
