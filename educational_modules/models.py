@@ -8,6 +8,7 @@ class EducationalModule(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     description = models.TextField(verbose_name='Описание')
+    price = models.PositiveIntegerField(default=0, verbose_name='Стоимость')
 
     def __str__(self):
         return self.name
