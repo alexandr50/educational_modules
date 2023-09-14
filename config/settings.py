@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'categories',
     'educational_modules',
     'users',
+    'content',
 
 ]
 
