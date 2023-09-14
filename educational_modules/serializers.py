@@ -7,4 +7,4 @@ class EducationalModuleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = EducationalModule
-        fields = ('name', 'description')
+        fields = ('name', 'description', 'price', 'image')
