@@ -21,6 +21,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
+from categories.views import about, give_price
 from config import settings
 
 schema_view = get_schema_view(
@@ -44,6 +45,8 @@ urlpatterns = [
     path('educational_modules/', include('educational_modules.urls', namespace='educational_modules')),
     path('users/', include('users.urls', namespace='users')),
     path('content/', include('content.urls', namespace='content')),
+    path('about/', about, name='about'),
+    path('give_price/', give_price, name='give_price'),
 
 ]
 if settings.DEBUG:

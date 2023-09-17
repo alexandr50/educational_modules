@@ -6,7 +6,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from categories.models import Category
 from content.models import Content
 from educational_modules.models import EducationalModule
-from educational_modules.serializers import EducationalModuleSerializer, EdModuleWithContentSerializer
+from educational_modules.serializers import EducationalModuleSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 

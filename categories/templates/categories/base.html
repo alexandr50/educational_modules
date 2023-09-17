@@ -205,7 +205,7 @@
 
                 <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{% url 'educational_modules:list' %}">Все курсы</a>
                 <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Поддержка</a>
-                <a class="py-2 link-body-emphasis text-decoration-none" href="#">Расценки</a>
+                <a class="py-2 link-body-emphasis text-decoration-none" href="{% url 'give_price' %}">Расценки</a>
             </nav>
         </div>
     </header>
@@ -220,9 +220,9 @@
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Главная</a></li>
 
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Стоимость</a></li>
+                <li class="nav-item"><a href="{% url 'give_price' %}" class="nav-link px-2 text-body-secondary">Стоимость</a></li>
 
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">О нас</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-body-secondary">О нас</a></li>
             </ul>
             <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
         </footer>
