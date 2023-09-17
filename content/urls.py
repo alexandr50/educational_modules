@@ -6,7 +6,7 @@ from .views import *
 app_name = ContentConfig.name
 
 urlpatterns = [
-
+    path('detail_content/<int:pk>/', ContentDeatilView.as_view(), name='detail'),
     path('', ContentListApiView.as_view(), name='list_view'),
     path('create/', ContentCreateApiView.as_view(), name='create_view'),
     path('update/<int:pk>/', ContentUpdateApiView.as_view(), name='update_view'),

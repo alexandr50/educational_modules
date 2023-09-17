@@ -1,0 +1,12 @@
+{% extends 'categories/base.html' %}
+
+{% block content %}
+<div class="container">
+<h2 class="text-center">{{ content.name }}</h2>
+
+<video>
+ <source src="{{ content.material.url }}">
+</video>
+</div>
+
+{% endblock %}
