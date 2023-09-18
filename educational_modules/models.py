@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class EducationalModule(models.Model):
     category = models.ForeignKey('categories.Category', on_delete=models.SET_NULL, verbose_name='Категория', null=True)
     name = models.CharField(max_length=30, verbose_name='Название')
@@ -13,7 +12,6 @@ class EducationalModule(models.Model):
 
     def __str__(self):
         return self.name
-
 
     class Meta:
         verbose_name = 'Образовательный модуль'
