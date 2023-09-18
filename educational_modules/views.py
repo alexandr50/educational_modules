@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
 from rest_framework import generics
 from rest_framework.renderers import TemplateHTMLRenderer
 
@@ -10,6 +9,7 @@ from educational_modules.serializers import EducationalModuleSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+
 class EducationalModuleList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'educational_modules/list_educational_modules.html'
@@ -17,6 +17,7 @@ class EducationalModuleList(APIView):
     def get(self, request):
         queryset_ed = EducationalModule.objects.all()
         return Response({'educational_modules': queryset_ed, 'categories': Category.objects.all()})
+
 
 class EducationalModuleListFilter(APIView):
     renderer_classes = [TemplateHTMLRenderer]
@@ -27,10 +28,10 @@ class EducationalModuleListFilter(APIView):
             queryset_ed = EducationalModule.objects.filter(category_id=pk)
             return Response({'educational_modules': queryset_ed, 'categories': Category.objects.all()})
 
+
 class EducationalModuleLDetail(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'educational_modules/educational_module.html'
-
 
     def get(self, request, pk):
         educational_module = get_object_or_404(EducationalModule, pk=pk)
@@ -39,14 +40,9 @@ class EducationalModuleLDetail(APIView):
         return Response({'content': content, 'educational_module': educational_module})
 
 
-
-
-
-
 class EducationalModuleListApiView(generics.ListAPIView):
     serializer_class = EducationalModuleSerializer
     queryset = EducationalModule.objects.all()
-
 
 
 class EducationalModuleCreateApiView(generics.CreateAPIView):

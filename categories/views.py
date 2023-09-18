@@ -1,8 +1,5 @@
 from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.renderers import TemplateHTMLRenderer
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from categories.models import Category
 from categories.serializers import CategorySerializer
@@ -12,8 +9,10 @@ from educational_modules.models import EducationalModule
 def index(request):
     return render(request, 'categories/index.html')
 
+
 def about(request):
     return render(request, 'categories/about.html')
+
 
 def give_price(request):
     min_price = min([ed.price for ed in EducationalModule.objects.all()])
@@ -43,5 +42,3 @@ class CategoryRetrieveApiView(generics.RetrieveAPIView):
 class CategoryDeleteApiView(generics.DestroyAPIView):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
-
-

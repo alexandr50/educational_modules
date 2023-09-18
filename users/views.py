@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import CreateView
 from rest_framework import generics
 
@@ -15,13 +14,16 @@ class RegisterUser(CreateView):
         'title': 'Регистрация'
     }
 
+
 class UserListApiView(generics.ListAPIView):
     serializer_class = UserSerializers
     queryset = CustomUser.objects.all()
 
+
 class UserCreateApiView(generics.CreateAPIView):
     serializer_class = UserSerializers
     queryset = CustomUser.objects.all()
+
 
 class UserUpdateApiView(generics.UpdateAPIView):
     serializer_class = UserSerializers
@@ -32,9 +34,7 @@ class UserRetrieveApiView(generics.RetrieveAPIView):
     serializer_class = UserSerializers
     queryset = CustomUser.objects.all()
 
+
 class UserDeleteApiView(generics.DestroyAPIView):
     serializer_class = UserSerializers
     queryset = CustomUser.objects.all()
-
-
-

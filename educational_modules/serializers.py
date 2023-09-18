@@ -11,9 +11,7 @@ class EducationalModuleSerializer(serializers.ModelSerializer):
     def get_content(self, education_module):
         queryset = [con.name for con in Content.objects.filter(educational_module=education_module)]
         return queryset
+
     class Meta:
         model = EducationalModule
         fields = ('name', 'description', 'price', 'image', 'content')
-
-
-
