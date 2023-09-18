@@ -9,6 +9,9 @@ from categories.serializers import CategorySerializer
 from educational_modules.models import EducationalModule
 
 
+def index(request):
+    return render(request, 'categories/index.html')
+
 def about(request):
     return render(request, 'categories/about.html')
 

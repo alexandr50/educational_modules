@@ -1,0 +1,15 @@
+{% extends 'categories/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Образовательные модули</h2>
+    <br>
+<h1>Добро пожаловать на платформу!
+для продолжения работы авторизуйтесь
+или зарегистрируйтесь</h1>
+
+    <div class="small"><a href="{% url 'users:login' %}">Авторизация</a></div>
+
+    <div class="small"><a href="{% url 'users:register' %}">Регистрация</a></div>
+</div>
+{% endblock %}
