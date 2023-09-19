@@ -6,6 +6,8 @@ from .models import Category
 
 class CategoryTestCase(APITestCase):
     def test_create_category(self):
+        """Тест создания категории"""
+
         data = {
             'title': 'Languages'
         }
@@ -23,6 +25,8 @@ class CategoryTestCase(APITestCase):
         self.assertEqual(Category.objects.all().first().title, 'Languages')
 
     def test_delete_category(self):
+        """Тест удаления категории"""
+
         data = {
             'title': 'Languages'
         }
@@ -40,6 +44,8 @@ class CategoryTestCase(APITestCase):
         self.assertFalse(Category.objects.filter(id=cat.id).exists())
 
     def test_update_category(self):
+        """Тест обновления категории"""
+
         data = {
             'title': 'Languages'
         }

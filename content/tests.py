@@ -26,6 +26,8 @@ class ContentTestCase(APITestCase):
         self.file.name = 'test.txt'
 
     def test_create_content(self):
+        """Тест создания контента"""
+
         data = {
             'name': 'test1',
             'material': self.file,
@@ -44,6 +46,8 @@ class ContentTestCase(APITestCase):
         self.assertEqual(Content.objects.all().count(), 1)
 
     def test_delete_content(self):
+        """Тест удаления контента"""
+
         con = Content.objects.create(name='test1', material=self.file)
         con.educational_module.set([1])
 
@@ -59,6 +63,8 @@ class ContentTestCase(APITestCase):
         self.assertFalse(Content.objects.filter(id=con.id).exists())
 
     def test_update_content(self):
+        """Тест обновления контента"""
+
         con = Content.objects.create(name='test1', material=self.file)
         con.educational_module.set([3])
 

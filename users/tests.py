@@ -26,6 +26,8 @@ class CustomUserTestCase(APITestCase):
         self.file.name = 'test.txt'
 
     def test_create_user(self):
+        """Тест создания юзера"""
+
         data = {
             'first_name': 'testfirst',
             'last_name': 'testlast',
@@ -47,6 +49,8 @@ class CustomUserTestCase(APITestCase):
         self.assertEqual(CustomUser.objects.all().first().email, 'emailtest@mail.ru')
 
     def test_delete_user(self):
+        """Тест удаления юзера"""
+
         data = {
             'first_name': 'testfirst',
             'last_name': 'testlast',
@@ -67,6 +71,8 @@ class CustomUserTestCase(APITestCase):
         self.assertFalse(CustomUser.objects.filter(id=usr.id).exists())
 
     def test_update_user(self):
+        """Тест обновления юзера"""
+
         data = {
             'first_name': 'testfirst',
             'last_name': 'testlast',

@@ -13,6 +13,8 @@ class EdModuleTestCase(APITestCase):
         )
 
     def test_create_ed_module(self):
+        """Тест создания модуля"""
+
         data = {
             'category': self.category.pk,
             'name': 'test1',
@@ -34,6 +36,8 @@ class EdModuleTestCase(APITestCase):
         self.assertEqual(EducationalModule.objects.all().first().price, 1000)
 
     def test_delete_ed_module(self):
+        """Тест удаления контента"""
+
         data = {
             'category': self.category,
             'name': 'test1',
@@ -53,6 +57,8 @@ class EdModuleTestCase(APITestCase):
         self.assertFalse(EducationalModule.objects.filter(id=ed_mod.id).exists())
 
     def test_update_ed_module(self):
+        """Тест обновления контента"""
+
         data = {
             'category': self.category,
             'name': 'test1',
