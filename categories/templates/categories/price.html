@@ -5,5 +5,8 @@
     <h2 class="text-center">Образовательные модули</h2>
     <br>
 <h1 class="text-center">Наши цены начинаются от {{ min_price }} рублей</h1>
-</div>
+
+<a type="button" href="{% url 'educational_modules:list' %}"
+               class="btn btn-lg btn-block btn-outline-primary">Назад</a>
+    </div>
 {% endblock %}
