@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-(*xem9_=s77^3(8$3nf0)mfdfm141=7uhmsc3p)%jtqv=s1#j!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_yasg',
 
     'categories',
     'educational_modules',
     'users',
+    'content',
 
 ]
 
@@ -89,8 +91,8 @@ DATABASES = {
         'NAME': os.getenv('NAME_DB'),
         'USER': os.getenv('USER_DB'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST_DB'),
-        'PORT': os.getenv('PORT_DB'),
+        "HOST": 'db',  # 'HOST': os.getenv('HOST_DB'),
+
     }
 }
 
@@ -129,6 +131,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = (BASE_DIR / 'static',)
+
+
 STATICFILES_DIRS = (BASE_DIR / 'static',)
 
 MEDIA_URL = '/media/'
@@ -141,14 +145,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-REST_FRAMEWORK = {
-
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.AllowAny",
+#     ],
+#
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ],
+# }
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
+
+LOGIN_REDIRECT_URL = '/educational_modules/list_ed/'
+LOGOUT_REDIRECT_URL = '/users/login'
+
+LOGOUT_URL = '/users/logout'
