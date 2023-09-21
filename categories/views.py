@@ -21,7 +21,8 @@ def about(request):
 def give_price(request):
     """Вью для страницы стоимость"""
     min_price = min([ed.price for ed in EducationalModule.objects.all()])
-    return render(request, 'categories/price.html', {'min_price': min_price})
+    if min_price:
+        return render(request, 'categories/price.html', {'min_price': min_price})
 
 
 class CategoryListApiView(generics.ListAPIView):
