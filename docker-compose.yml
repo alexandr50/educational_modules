@@ -33,24 +33,12 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/code
-#    restart: on-failure
+      - ./.env:/application/.env
+#      - .:/code
+
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-#  app:
-#    env_file:
-#      - .env
-#    build: .
-#    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-#    ports:
-#      - '8000:8000'
-#    depends_on:
-#      db:
-#        condition: service_healthy
-#    restart: on-failure
-#    volumes:
-#      - .:/application
 
 
 volumes:
   postgres_data:
-    driver: local
+
