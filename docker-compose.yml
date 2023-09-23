@@ -33,11 +33,12 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/code
+      - ./.env:/application/.env
+#      - .:/code
 
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
 
 volumes:
   postgres_data:
-    driver: local
+
