@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-(*xem9_=s77^3(8$3nf0)mfdfm141=7uhmsc3p)%jtqv=s1#j!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
 # Application definition
 
@@ -91,7 +91,9 @@ DATABASES = {
         'NAME': os.getenv('NAME_DB'),
         'USER': os.getenv('USER_DB'),
         'PASSWORD': os.getenv('PASSWORD'),
-        "HOST": 'db',  # 'HOST': os.getenv('HOST_DB'),
+        # 'HOST': 'db',
+        "HOST":  os.getenv('HOST_DB'),
+        "PORT": os.getenv('PORT_DB')
 
     }
 }
@@ -155,10 +157,10 @@ AUTH_USER_MODEL = 'users.CustomUser'
 #     ],
 # }
 
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-}
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+# }
 
 LOGIN_REDIRECT_URL = '/educational_modules/list_ed/'
 LOGOUT_REDIRECT_URL = '/users/login'

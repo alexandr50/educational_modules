@@ -1,1 +1,0 @@
-<MagicMock name='mock.read()' id='140328950257392'>
