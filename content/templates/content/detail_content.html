@@ -4,9 +4,19 @@
 <div class="container">
 <h2 class="text-center">{{ content.name }}</h2>
 
-<video>
- <source src="{{ content.material.url }}">
+<video
+  loop autoplay="autoplay" src="{{ content.material.url }}" width="50%" height="50%">
 </video>
+
+ {% for file in content.get_file_fields %}
+        {% if file.field %}
+           {{ file.label }}: {{ file.field}}
+        {% endif %}
+    {% endfor %}
+
+ <object src="{{ content.material.url }}" type="application/pdf" width="50%" height="50%"></object>
+
+
 </div>
 <a type="button" href="{% url 'educational_modules:list' %}"
                class="btn btn-lg btn-block btn-outline-primary">Назад</a>
