@@ -91,9 +91,9 @@ DATABASES = {
         'NAME': os.getenv('NAME_DB'),
         'USER': os.getenv('USER_DB'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': 'db',
-        # "HOST":  os.getenv('HOST_DB'),
-        # "PORT": os.getenv('PORT_DB')
+        # 'HOST': 'db',
+        "HOST":  os.getenv('HOST_DB'),
+        "PORT": os.getenv('PORT_DB')
 
     }
 }
@@ -157,10 +157,10 @@ AUTH_USER_MODEL = 'users.CustomUser'
 #     ],
 # }
 
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-}
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+# }
 
 LOGIN_REDIRECT_URL = '/educational_modules/list_ed/'
 LOGOUT_REDIRECT_URL = '/users/login'
