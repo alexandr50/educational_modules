@@ -7,14 +7,16 @@
 <video
  src="{{ content.material.url }}" width="100%" height="100%">
 </video>
+    <p>{{ res }}</p>
 
  {% for file in content.get_file_fields %}
         {% if file.field %}
            {{ file.label }}: {{ file.field}}
         {% endif %}
+    <div src="{{ content.material.url }}"></div>
     {% endfor %}
 
-<!-- <object src="{{ content.material.url }}" type="application/pdf" width="50%" height="50%"></object>-->
+ <object src="{{ content.material.url }}" type="application/pdf" width="50%" height="50%"></object>
 
 
 </div>
