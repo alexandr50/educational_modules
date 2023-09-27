@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from categories.models import Category
 from content.models import Content
+from educational_modules.forms import PyaFormModule
 from educational_modules.models import EducationalModule
 
 
@@ -55,5 +56,11 @@ class EducationalModuleLDetail(generic.DetailView):
         context['educational_module'] = get_object_or_404(EducationalModule, pk=self.kwargs['pk'])
         context['content'] = Content.objects.filter(educational_module__pk=context['educational_module'].pk)
         return context
+
+
+class PayModule(generic.UpdateView):
+    model = EducationalModule
+    template_name = 'educational_modules/pay_module.html'
+    form_class = PyaFormModule
 
 
