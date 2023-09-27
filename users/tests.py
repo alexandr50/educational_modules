@@ -9,7 +9,6 @@ from educational_modules.models import EducationalModule
 from .models import CustomUser
 
 
-
 class CustomUserTestCase(APITestCase):
 
     def setUp(self) -> None:
