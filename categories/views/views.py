@@ -1,8 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
 
-from categories.models import Category
-from categories.serializers import CategorySerializer
 from educational_modules.models import EducationalModule
 
 

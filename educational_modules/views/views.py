@@ -1,42 +1,59 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import generics
-from rest_framework.renderers import TemplateHTMLRenderer
+from django.views import generic
+from rest_framework.response import Response
 
 from categories.models import Category
 from content.models import Content
 from educational_modules.models import EducationalModule
-from educational_modules.serializers import EducationalModuleSerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
 
 
-class EducationalModuleList(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
+class EducationalModuleList(generic.ListView):
+    model = EducationalModule
     template_name = 'educational_modules/list_educational_modules.html'
+    extra_context = {
+        'title': 'Список модулей'
+    }
 
-    def get(self, request):
-        queryset_ed = EducationalModule.objects.all()
-        return Response({'educational_modules': queryset_ed, 'categories': Category.objects.all()})
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
+    def get_queryset(self):
+        return EducationalModule.objects.all()
 
 
-class EducationalModuleListFilter(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
+
+class EducationalModuleListFilter(generic.ListView):
+    model = EducationalModule
     template_name = 'educational_modules/list_educational_modules.html'
+    extra_context = {
+        'title': 'Список модулей'
+    }
 
-    def get(self, request, pk):
-        if pk:
-            queryset_ed = EducationalModule.objects.filter(category_id=pk)
-            return Response({'educational_modules': queryset_ed, 'categories': Category.objects.all()})
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+
+        return context
+
+    def get_queryset(self, id_category=None):
+        id_category = self.kwargs['pk']
+        qs = EducationalModule.objects.filter(category_id=id_category)
+        return qs
 
 
-class EducationalModuleLDetail(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
+class EducationalModuleLDetail(generic.DetailView):
+    model = EducationalModule
     template_name = 'educational_modules/educational_module.html'
+    extra_context = {
+        'title': 'Информация о модуле'
+    }
 
-    def get(self, request, pk):
-        educational_module = get_object_or_404(EducationalModule, pk=pk)
-        content = Content.objects.filter(educational_module__pk=educational_module.pk)
-
-        return Response({'content': content, 'educational_module': educational_module})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['educational_module'] = get_object_or_404(EducationalModule, pk=self.kwargs['pk'])
+        context['content'] = Content.objects.filter(educational_module__pk=context['educational_module'].pk)
+        return context
 
 
