@@ -1,10 +1,11 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from users import apps
-from .views.views_api import (UserCreateApiView, UserDeleteApiView, UserUpdateApiView,
-                    UserRetrieveApiView, UserListApiView)
 from .views.views import RegisterUser
+from .views.views_api import (UserCreateApiView, UserDeleteApiView, UserUpdateApiView,
+                              UserRetrieveApiView, UserListApiView)
 
 app_name = apps.UsersConfig.name
 
