@@ -1,8 +1,9 @@
 from django.urls import path
 
 from .apps import ContentConfig
-from .views import (ContentDetailView, ContentCreateApiView, ContentRetrieveApiView,
+from .views.views_api import (ContentCreateApiView, ContentRetrieveApiView,
                     ContentDeleteApiView, ContentListApiView, ContentUpdateApiView)
+from .views.views import ContentDetailView
 
 app_name = ContentConfig.name
 

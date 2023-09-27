@@ -1,9 +1,9 @@
 from django.urls import path
 
 from .apps import EducationalModulesConfig
-from .views import (EducationalModuleListApiView, EducationalModuleList, EducationalModuleListFilter,
-                    EducationalModuleLDetail, EducationalModuleCreateApiView, EducationalModuleDeleteApiView,
+from .views.views_api import (EducationalModuleListApiView, EducationalModuleCreateApiView, EducationalModuleDeleteApiView,
                     EducationalModuleRetrieveApiView, EducationalModuleUpdateApiView)
+from .views.views import EducationalModuleList, EducationalModuleListFilter, EducationalModuleLDetail
 
 app_name = EducationalModulesConfig.name
 
