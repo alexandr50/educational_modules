@@ -1,7 +1,5 @@
 from django.db import models
 
-from users.models import CustomUser
-
 
 class EducationalModule(models.Model):
     category = models.ForeignKey('categories.Category', on_delete=models.SET_NULL, verbose_name='Категория', null=True)
@@ -20,12 +18,5 @@ class EducationalModule(models.Model):
         verbose_name_plural = 'Образовательные модули'
 
 
-class UserModule(models.Model):
-    educational_module = models.ForeignKey('educational_modules.EducationalModule', on_delete=models.CASCADE, verbose_name='Модуль')
-    custom_user = models.ForeignKey('users.CustomUser', on_delete=models.CASCADE, verbose_name='Пользователь')
-
-
-    def __str__(self):
-        return f'{self.educational_module.name} | {self.custom_user.email}'
 
 
