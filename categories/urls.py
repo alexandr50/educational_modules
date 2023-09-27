@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .apps import CategoriesConfig
-from .views import (CategoryListApiView, CategoryRetrieveApiView,
+from .views.vews_api import (CategoryListApiView, CategoryRetrieveApiView,
                     CategoryCreateApiView, CategoryDeleteApiView, CategoryUpdateApiView)
 
 app_name = CategoriesConfig.name
