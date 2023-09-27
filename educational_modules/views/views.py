@@ -1,10 +1,9 @@
 from django.shortcuts import get_object_or_404
 from django.views import generic
-from rest_framework.response import Response
 
 from categories.models import Category
 from content.models import Content
-from educational_modules.forms import PyaFormModule
+from payment.forms import PyaFormModule
 from educational_modules.models import EducationalModule
 
 
