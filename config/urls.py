@@ -21,7 +21,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-from categories.views import about, give_price, index
+from categories.views.views import about, give_price, index
 from config import settings
 
 schema_view = get_schema_view(
@@ -44,6 +44,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('categories/', include('categories.urls', namespace='categories')),
     path('educational_modules/', include('educational_modules.urls', namespace='educational_modules')),
+    path('payment/', include('payment.urls', namespace='payment')),
     path('users/', include('users.urls', namespace='users')),
     path('content/', include('content.urls', namespace='content')),
     path('about/', about, name='about'),

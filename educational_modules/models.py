@@ -16,3 +16,7 @@ class EducationalModule(models.Model):
     class Meta:
         verbose_name = 'Образовательный модуль'
         verbose_name_plural = 'Образовательные модули'
+
+
+
+

@@ -10,6 +10,10 @@ class Content(models.Model):
                                                 verbose_name='Образовательный модуль',
                                                 related_name='educational_module')
 
+    def get_file_fields(self):
+        return [{"label": field.verbose_name, "field": getattr(self, field.name)} for field in self._meta.get_fields()
+                if isinstance(field, models.FileField)]
+
     def __str__(self):
         return self.name
 

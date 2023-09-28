@@ -9,6 +9,8 @@ from educational_modules.models import EducationalModule
 from .models import Content
 
 
+
+
 class ContentTestCase(APITestCase):
 
     def setUp(self) -> None:

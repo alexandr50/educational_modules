@@ -1,6 +1,7 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from educational_modules.models import EducationalModule
+from django.db import models
+
+
 from users.manager import UserManager
 
 
@@ -10,7 +11,9 @@ class CustomUser(AbstractUser):
     last_name = models.CharField(max_length=30, verbose_name='Фамилия')
     age = models.PositiveIntegerField(verbose_name='Возраст', blank=True, null=True)
     email = models.EmailField(max_length=40, unique=True, verbose_name='Почта')
-    educational_modules = models.ManyToManyField(EducationalModule)
+    is_payed = models.BooleanField(default=False)
+    educational_modules = models.ManyToManyField('educational_modules.EducationalModule')
+    bank_card = models.CharField(max_length=20, default=None, blank=True, null=True, verbose_name='банковская карта')
 
     USERNAME_FIELD = 'email'
 
