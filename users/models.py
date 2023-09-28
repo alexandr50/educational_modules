@@ -13,6 +13,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(max_length=40, unique=True, verbose_name='Почта')
     is_payed = models.BooleanField(default=False)
     educational_modules = models.ManyToManyField('educational_modules.EducationalModule')
+    bank_card = models.CharField(max_length=20, default=None, blank=True, null=True, verbose_name='банковская карта')
 
     USERNAME_FIELD = 'email'
 

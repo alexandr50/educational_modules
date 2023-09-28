@@ -44,6 +44,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('categories/', include('categories.urls', namespace='categories')),
     path('educational_modules/', include('educational_modules.urls', namespace='educational_modules')),
+    path('payment/', include('payment.urls', namespace='payment')),
     path('users/', include('users.urls', namespace='users')),
     path('content/', include('content.urls', namespace='content')),
     path('about/', about, name='about'),
