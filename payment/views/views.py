@@ -15,14 +15,20 @@ class PayModule(generic.CreateView):
     user_form = UserPayForm
     educational_module_form = EdModuleForm
 
+
+
     def get(self, request, *args, **kwargs):
-        self.educational_module = EducationalModule.objects.get(pk=self.kwargs['pk'])
-        self.user = self.request.user
-        context = {'ed_module': self.educational_module_form(instance=self.educational_module),
-                   'user': self.user_form(instance=self.user)}
+        educational_module = EducationalModule.objects.get(pk=self.kwargs['pk'])
+        my_user = self.request.user
+        context = {'ed_module': self.educational_module_form(instance=educational_module),
+                   'my_user': self.user_form(instance=my_user)}
         return render(request, 'payment/pay_module.html', context)
 
     def post(self, request, *args, **kwargs):
+        educational_module = EducationalModule.objects.get(pk=self.kwargs['pk'])
+        my_user = self.request.user
+        context = {'ed_module': self.educational_module_form(instance=educational_module),
+                   'my_user': self.user_form(instance=my_user)}
         if request.method == 'POST':
             bank_card = request.POST.get('bank_card')
             module = EducationalModule.objects.get(name=request.POST.get('name'))
@@ -32,4 +38,6 @@ class PayModule(generic.CreateView):
                                                  educational_module=module,
                                                  is_done=True)
                 return HttpResponseRedirect(reverse('educational_modules:list'))
+            else:
+                return render(request, 'payment/pay_module.html', context)
 

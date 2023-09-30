@@ -1,11 +1,12 @@
 {% extends 'categories/base.html' %}
 
 {% block content %}
+
 <form method="post">
     {% csrf_token %}
 <table>
     {{ ed_module }}
-    {{ user }}
+    {{ my_user }}
 
 
 </table>
