@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.views import generic
 
 from categories.models import Category
 from content.models import Content
-from payment.forms import PyaFormModule
+
 from educational_modules.models import EducationalModule
 
 
@@ -56,10 +57,9 @@ class EducationalModuleLDetail(generic.DetailView):
         context['content'] = Content.objects.filter(educational_module__pk=context['educational_module'].pk)
         return context
 
+    def get_success_url(self):
+        return reverse('payment:pay_module', kwargs={'pk': self.object.pk})
 
-class PayModule(generic.UpdateView):
-    model = EducationalModule
-    template_name = 'educational_modules/pay_module.html'
-    form_class = PyaFormModule
+
 
 

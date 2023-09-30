@@ -3,7 +3,7 @@ from django.urls import path
 from .apps import EducationalModulesConfig
 from .views.views_api import (EducationalModuleListApiView, EducationalModuleCreateApiView, EducationalModuleDeleteApiView,
                     EducationalModuleRetrieveApiView, EducationalModuleUpdateApiView)
-from .views.views import EducationalModuleList, EducationalModuleListFilter, EducationalModuleLDetail, PayModule
+from .views.views import EducationalModuleList, EducationalModuleListFilter, EducationalModuleLDetail
 
 app_name = EducationalModulesConfig.name
 
@@ -11,7 +11,6 @@ urlpatterns = [
     path('list_ed/', EducationalModuleList.as_view(), name='list'),
     path('list_filter_ed/<int:pk>/', EducationalModuleListFilter.as_view(), name='list_filter_ed'),
     path('detail_ed_module/<int:pk>/', EducationalModuleLDetail.as_view(), name='detail_ed_module'),
-    path('pay_module/<int:pk>/', PayModule.as_view(), name='pay_module'),
 
 
     path('', EducationalModuleListApiView.as_view(), name='list_view'),
