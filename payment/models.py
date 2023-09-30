@@ -9,3 +9,12 @@ class Payment(models.Model):
     educational_module = models.OneToOneField('educational_modules.EducationalModule',
                                               on_delete=models.CASCADE,
                                               verbose_name='Образовательный модуль')
+
+
+    def __str__(self):
+        return f'{self.user} | {self.educational_module}'
+
+
+    class Meta:
+        verbose_name = 'Платеж'
+        verbose_name_plural = 'Платежи'

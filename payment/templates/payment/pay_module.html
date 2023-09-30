@@ -1,7 +1,18 @@
 {% extends 'categories/base.html' %}
 
 {% block content %}
+<form method="post">
+    {% csrf_token %}
+<table>
+    {{ ed_module }}
+    {{ user }}
 
-{{ form }}
+
+</table>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Оплатить</button>
+    </div>
+    </form>
+
 {% include "categories/footer.html" %}
 {% endblock %}

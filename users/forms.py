@@ -26,3 +26,14 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name', 'email', 'password1', 'password2',)
+
+
+class UserPayForm(forms.ModelForm):
+
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'bank_card')
+
+    def __init__(self, *args, **kwargs):
+        super(UserPayForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['readonly'] = True
