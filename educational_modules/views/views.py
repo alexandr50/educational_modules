@@ -1,3 +1,6 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views import generic
@@ -59,7 +62,3 @@ class EducationalModuleLDetail(generic.DetailView):
 
     def get_success_url(self):
         return reverse('payment:pay_module', kwargs={'pk': self.object.pk})
-
-
-
-

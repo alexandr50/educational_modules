@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'users',
     'content',
     'payment',
+    'bank_card',
 
 ]
 

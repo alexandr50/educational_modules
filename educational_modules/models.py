@@ -1,5 +1,8 @@
 from django.db import models
 
+# Create your models here.
+from django.db import models
+
 
 class EducationalModule(models.Model):
     category = models.ForeignKey('categories.Category', on_delete=models.SET_NULL, verbose_name='Категория', null=True)
@@ -16,7 +19,3 @@ class EducationalModule(models.Model):
     class Meta:
         verbose_name = 'Образовательный модуль'
         verbose_name_plural = 'Образовательные модули'
-
-
-
-
