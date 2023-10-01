@@ -32,7 +32,7 @@ class UserPayForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'bank_card')
+        fields = ('email',)
 
     def __init__(self, *args, **kwargs):
         super(UserPayForm, self).__init__(*args, **kwargs)

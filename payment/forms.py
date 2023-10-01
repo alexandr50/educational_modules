@@ -1,6 +1,6 @@
 from django import forms
 
-from educational_modules.models import EducationalModule
+# from educational_modules.models import EducationalModule
 from payment.models import Payment
 from users.models import CustomUser
 
