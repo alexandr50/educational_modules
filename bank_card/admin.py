@@ -2,4 +2,7 @@ from django.contrib import admin
 
 from bank_card.models import BankCard
 
-admin.site.register(BankCard)
+@admin.register(BankCard)
+class BankCardAdmin(admin.ModelAdmin):
+    list_display = ('date',)
+    exclude = ('csv',)
