@@ -4,6 +4,7 @@ from bank_card.models import BankCard
 
 
 class BankCardForm(forms.ModelForm):
+    csv = forms.CharField(widget=forms.PasswordInput(), label='csv')
 
     def __init__(self, *args, **kwargs):
         super(BankCardForm, self).__init__(*args, **kwargs)
